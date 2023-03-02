@@ -30,14 +30,10 @@ jobs:
           fetch-depth: 0
           repository: SagerNet/sing-box
           ref: dev-next
-      - name: Get latest go version
-        id: version
-        run: |
-          echo ::set-output name=go_version::$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g')
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
-          go-version: ${{ steps.version.outputs.go_version }}
+          go-version: '1.21'
       - name: Cache go module
         uses: actions/cache@v3
         with:
@@ -117,14 +113,10 @@ jobs:
           fetch-depth: 0
           repository: SagerNet/sing-box
           ref: dev-next
-      - name: Get latest go version
-        id: version
-        run: |
-          echo ::set-output name=go_version::$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g')
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
-          go-version: ${{ steps.version.outputs.go_version }}
+          go-version: '1.21'
       - name: Cache go module
         uses: actions/cache@v3
         with:
