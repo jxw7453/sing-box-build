@@ -1,4 +1,4 @@
-name: build sing-box with proxy providers
+name: build sing-box with reality
 
 on:
   workflow_dispatch:
