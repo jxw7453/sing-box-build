@@ -1,4 +1,4 @@
-name: build sing-box with reality for linux
+name: build sing-box with reality for MacOS
 
 on:
   workflow_dispatch:
