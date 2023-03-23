@@ -108,10 +108,10 @@ jobs:
         with:
           name: sing-box-${{ matrix.name }}
           path: sing-box*
-#      - name: Release
-#        uses: softprops/action-gh-release@v1
-#        with:
-#          tag_name: ${{ env.TAG_NAME }}
-#          name: ${{ env.RELEASE_NAME }}
-#          files: |
-#            sing-box*
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.5
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: ${{ env.RELEASE_NAME }}
+          files: |     
+          sing-box*
