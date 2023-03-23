@@ -113,4 +113,5 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           name: ${{ env.RELEASE_NAME }}
-          files: |  sing-box*
+          files: |  
+            sing-box*
