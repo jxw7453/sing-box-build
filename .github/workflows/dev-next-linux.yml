@@ -29,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: SagerNet/sing-box
-          ref: main-next
+          ref: dev-next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
@@ -43,7 +43,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: SagerNet/sing-box
-          ref: main-next
+          ref: dev-next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
@@ -85,7 +85,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: SagerNet/sing-box
-          ref: main-next
+          ref: dev-next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
