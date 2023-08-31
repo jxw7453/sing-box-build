@@ -43,7 +43,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: CHIZI-0618/sing-box
-          ref: dev-next
+          ref: dev-next-yaott
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
