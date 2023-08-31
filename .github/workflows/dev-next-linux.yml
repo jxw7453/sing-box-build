@@ -1,4 +1,4 @@
-name: build sing-box with reality for linux
+name: build sing-box-yaott for linux client
 
 on:
   workflow_dispatch:
@@ -28,8 +28,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          repository: SagerNet/sing-box
-          ref: dev-next
+          repository: CHIZI-0618/sing-box
+          ref: dev-next-yaott
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          repository: SagerNet/sing-box
+          repository: CHIZI-0618/sing-box
           ref: dev-next
       - name: Setup Go
         uses: actions/setup-go@v4
@@ -74,7 +74,7 @@ jobs:
       GOARM: ${{ matrix.goarm }}
       GOMIPS: ${{ matrix.gomips }}
       CGO_ENABLED: 1
-      TAGS: osusergo,netgo,with_gvisor,with_quic,with_wireguard,with_clash_api,with_utls,with_reality_server
+      TAGS: osusergo,netgo,with_gvisor,with_quic,with_clash_api,with_ech,with_utls,with_proxyprovider
     steps:
       - name: Set variables
         run: |
