@@ -1,4 +1,4 @@
-name: build sing-box-yaott for linux client
+name: build sing-box-yaott client for linux 
 
 on:
   workflow_dispatch:
