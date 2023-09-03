@@ -1,4 +1,4 @@
-name: build sing-box with reality for windows
+name: build sing-box-yaott client for windows
 
 on:
   workflow_dispatch:
