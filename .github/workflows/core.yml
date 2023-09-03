@@ -1,4 +1,4 @@
-name: Build Core
+name: Build Core based on yaott
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_grpc,with_wireguard,with_gvisor,with_shadowsocksr,with_utls,with_ech,with_clash_api,with_proxyprovider
+      TAGS: with_gvisor,with_quic,with_dhcp,with_utls,with_ech,with_clash_api,with_proxyprovider
 
     steps:
       - uses: actions/checkout@v3
