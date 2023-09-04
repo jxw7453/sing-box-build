@@ -1,9 +1,9 @@
 name: Build Core with qjebbs
 
 on:
-  push:
-    paths-ignore:
-      - '**.md'
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   build:
