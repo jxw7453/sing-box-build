@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-         repository: debiansid/sing-box
-         ref: main-qjebbs
+         repository: qjebbs/sing-box
+         ref: main
          fetch-depth: 0
 
       - name: Get latest go version
