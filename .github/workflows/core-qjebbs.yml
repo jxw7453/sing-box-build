@@ -39,7 +39,7 @@ jobs:
       - name: Build core
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-          version: 1.4.0
+          version: 1.4.1
         run: |
           CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android33-clang
           #VERSION=$(CGO_ENABLED=1 go run ./cmd/internal/read_tag)
