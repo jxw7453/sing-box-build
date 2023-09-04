@@ -1,9 +1,7 @@
 name: Build Core based on yaott
 
 on:
-  push:
-    paths-ignore:
-      - '**.md'
+  workflow_dispatch:
 
 jobs:
   build:
