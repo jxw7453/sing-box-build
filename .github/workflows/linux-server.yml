@@ -56,7 +56,9 @@ jobs:
             goos: linux
             goarch: amd64
             goamd64: v3
-         
+          - name: linux-arm64
+            goos: linux
+            goarch: arm64
           
    
 
