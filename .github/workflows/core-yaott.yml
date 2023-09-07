@@ -1,4 +1,4 @@
-name: Build Core based on yaott
+name: Build Core based on main yaott
 
 on:
   workflow_dispatch:
