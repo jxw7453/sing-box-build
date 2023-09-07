@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-         repository: qjebbs/sing-box
-         ref: main
+         repository: debiansid/sing-box
+         ref: main-yaott
          fetch-depth: 0
 
       - name: Get latest go version
@@ -39,10 +39,10 @@ jobs:
       - name: Build core
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-          version: 1.4.1
+          #version: 1.4.1
         run: |
           CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android33-clang
-          #VERSION=$(CGO_ENABLED=1 go run ./cmd/internal/read_tag)
+          VERSION=$(CGO_ENABLED=1 go run ./cmd/internal/read_tag)
           CGO_ENABLED=1 CC=${CC} GOARCH=arm64 GOOS=android go build -v -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=${version}' -s -w -buildid=" -tags ${TAGS} ./cmd/sing-box
           CGO_ENABLED=1 GOARCH=amd64 GOOS=windows go build -v -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=${version}' -H windowsgui -s -w -buildid=" -tags ${TAGS} ./cmd/sing-box
 
