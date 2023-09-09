@@ -13,7 +13,7 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v3
         with:
-         repository: CHIZI-0618/sing-box
+         repository: debiansid/sing-box
          ref: dev-next-yaott
          fetch-depth: 0
 
