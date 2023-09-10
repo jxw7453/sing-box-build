@@ -12,7 +12,7 @@ jobs:
       TAGS: with_gvisor,with_quic,with_utls,with_ech,with_clash_api,with_proxyprovider
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           repository: CHIZI-0618/sing-box
