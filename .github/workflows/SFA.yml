@@ -13,7 +13,7 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: debiansid/sing-box
+         repository: yaotthaha/sing-box-pub
          ref: dev-next-yaott
          fetch-depth: 0
 
