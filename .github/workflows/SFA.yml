@@ -13,8 +13,8 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: CHIZI-0618/sing-box
-         ref: dev-next-yaott
+         repository: yaotthaha/sing-box-pub
+         ref: dev-yaott
          fetch-depth: 0
 
       - name: Get latest go version
