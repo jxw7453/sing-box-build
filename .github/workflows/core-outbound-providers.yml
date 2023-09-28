@@ -9,14 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_gvisor,with_quic,with_utls,with_ech,with_clash_api
+      TAGS: with_quic,with_gvisor,with_utls,with_clash_api,with_proxyprovider
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           repository: PuerNya/sing-box
-          ref: outbound-providers
+          ref: building
 
       - name: Get latest go version
         id: go_version
