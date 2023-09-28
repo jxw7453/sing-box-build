@@ -65,7 +65,7 @@ jobs:
       GOARM: ${{ matrix.goarm }}
       GOMIPS: ${{ matrix.gomips }}
       CGO_ENABLED: 1
-      TAGS: with_gvisor,with_quic,with_clash_api,with_ech,with_utls,with_proxyprovider
+      TAGS: with_gvisor,with_quic,with_clash_api,with_utls,with_proxyprovider,with_ruleprovider
     steps:
       - name: Set variables
         run: |
