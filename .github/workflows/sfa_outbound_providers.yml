@@ -42,7 +42,7 @@ jobs:
 
       - name: Build SFA
         env:
-         version: 1.5.0-rc.6
+         version: 1.5.0
         run: |
           mkdir -p SFA/app/libs/
           make lib_install
