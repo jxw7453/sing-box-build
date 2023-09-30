@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_clash_api,with_proxyprovider
+      TAGS: with_quic,with_gvisor,with_utls,with_clash_api
 
     steps:
       - name: Checkout core Repository
