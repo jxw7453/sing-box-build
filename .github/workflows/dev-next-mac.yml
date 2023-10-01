@@ -71,7 +71,7 @@ jobs:
           echo "RELEASE_NAME=Released on $(date +%Y%m%d%H)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H)" >> $GITHUB_ENV
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           repository: CHIZI-0618/sing-box
