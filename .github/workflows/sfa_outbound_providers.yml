@@ -42,6 +42,8 @@ jobs:
 
       - name: Build SFA
         run: |
+          git remote add sekai https://github.com/SagerNet/sing-box
+          git fetch sekai dev-next
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
