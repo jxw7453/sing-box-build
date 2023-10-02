@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: debiansid/sing-box
-          ref: dev-yaott
+          ref: dev-next-yaott
 
       - name: Get latest go version
         id: go_version
