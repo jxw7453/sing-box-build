@@ -40,6 +40,8 @@ jobs:
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
+          git remote add sekai https://github.com/SagerNet/sing-box
+          git fetch sekai
           CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android33-clang
           VERSION=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
           CGO_ENABLED=1 CC=${CC} GOARCH=arm64 GOOS=android go build -v -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=${VERSION}' -s -w -buildid=" -tags ${TAGS} ./cmd/sing-box
