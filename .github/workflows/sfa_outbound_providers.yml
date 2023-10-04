@@ -32,6 +32,7 @@ jobs:
         with:
           repository: SagerNet/sing-box-for-android
           path: SFA
+          ref: 7930d4299494589de2123ea371248aa6941d95f4
           submodules: recursive
 
       - name: Setup Java
@@ -42,6 +43,8 @@ jobs:
 
       - name: Build SFA
         run: |
+          git remote add sekai https://github.com/SagerNet/sing-box
+          git fetch sekai
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
