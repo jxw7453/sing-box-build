@@ -32,7 +32,6 @@ jobs:
         with:
           repository: SagerNet/sing-box-for-android
           path: SFA
-          ref: 7930d4299494589de2123ea371248aa6941d95f4
           submodules: recursive
 
       - name: Setup Java
