@@ -1,4 +1,4 @@
-name: Build Core based on yaott
+name: Build Core from E5 repo
 
 on:
   workflow_dispatch:
