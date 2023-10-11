@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: debiansid/sing-box
-          ref: dev-yaott
+          ref: dev-next-yaott
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
