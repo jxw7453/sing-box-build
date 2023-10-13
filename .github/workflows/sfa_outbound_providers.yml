@@ -1,4 +1,4 @@
-name: Build SFA
+name: Build SFA from PuerNya 
 
 on:
   push:
