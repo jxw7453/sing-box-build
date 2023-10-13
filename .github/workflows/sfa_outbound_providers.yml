@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'oracle'
-          java-version: 25
+          java-version: 233
 
       - name: Build SFA
         run: |
