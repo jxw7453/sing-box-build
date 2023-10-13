@@ -1,21 +1,18 @@
-name: Build SFA with outbound_providers core from PuerNya
+name: Build SFA
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_clash_api
+      TAGS: "with_quic,with_utls,with_reality_server,with_clash_api,with_gvisor"
 
     steps:
-      - name: Checkout core Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
-         repository: PuerNya/sing-box
-         ref: building
-         fetch-depth: 0
+          fetch-depth: 0
 
       - name: Get latest go version
         id: go_version
@@ -23,9 +20,9 @@ jobs:
           echo go_version=$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g') >> $GITHUB_OUTPUT
 
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v4.1.0
         with:
-          go-version: '1.21.1'
+          go-version: 1.21.1
 
       - name: Checkout SFA Repository
         uses: actions/checkout@v3
@@ -55,7 +52,7 @@ jobs:
           sed -i '/signingConfigs\.release/d' app/build.gradle
           chmod +x ./gradlew
           ./gradlew assembleRelease
-
+      
       - name: Sign SFA
         uses: PuerNya/sign-android-release@v2
         with:
