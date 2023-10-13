@@ -56,8 +56,50 @@ jobs:
           chmod +x ./gradlew
           ./gradlew assembleRelease
 
-      - name: Upload artifact
+     - name: Sign SFA
+        uses: PuerNya/sign-android-release@v2
+        with:
+          releaseDirectory: SFA/app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGN_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+
+      - name: Upload arm64-v8a artifact
         uses: actions/upload-artifact@v3
         with:
-          name: SFA
-          path: SFA/app/build/outputs/apk/
+          name: SFA-arm64-v8a
+          path: |
+            SFA/app/build/outputs/apk/release/*-arm64-v8a-signed.apk
+            SFA/app/build/outputs/apk/release/*-arm64-v8a-*-signed.apk
+
+      - name: Upload armeabi-v7a artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SFA-armeabi-v7a
+          path: |
+            SFA/app/build/outputs/apk/release/*-armeabi-v7a-signed.apk
+            SFA/app/build/outputs/apk/release/*-armeabi-v7a-*-signed.apk
+
+      - name: Upload x86_64 artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SFA-x86_64
+          path: |
+            SFA/app/build/outputs/apk/release/*-x86_64-signed.apk
+            SFA/app/build/outputs/apk/release/*-x86_64-*-signed.apk
+
+      - name: Upload x86 artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SFA-x86
+          path: |
+            SFA/app/build/outputs/apk/release/*-x86-signed.apk
+            SFA/app/build/outputs/apk/release/*-x86-*-signed.apk
+
+      - name: Upload universal artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SFA-universal
+          path: |
+            SFA/app/build/outputs/apk/release/*-universal-signed.apk
+            SFA/app/build/outputs/apk/release/*-universal-*-signed.apk
