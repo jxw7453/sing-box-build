@@ -10,9 +10,11 @@ jobs:
       TAGS: "with_quic,with_utls,with_reality_server,with_clash_api,with_gvisor"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          repository: PuerNya/sing-box
+          ref: building
 
       - name: Get latest go version
         id: go_version
