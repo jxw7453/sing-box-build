@@ -56,7 +56,7 @@ jobs:
           chmod +x ./gradlew
           ./gradlew assembleRelease
 
-     - name: Sign SFA
+      - name: Sign SFA
         uses: PuerNya/sign-android-release@v2
         with:
           releaseDirectory: SFA/app/build/outputs/apk/release
