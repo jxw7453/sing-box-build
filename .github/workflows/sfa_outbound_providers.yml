@@ -73,30 +73,7 @@ jobs:
             SFA/app/build/outputs/apk/release/*-arm64-v8a-signed.apk
             SFA/app/build/outputs/apk/release/*-arm64-v8a-*-signed.apk
 
-      - name: Upload armeabi-v7a artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: SFA-armeabi-v7a
-          path: |
-            SFA/app/build/outputs/apk/release/*-armeabi-v7a-signed.apk
-            SFA/app/build/outputs/apk/release/*-armeabi-v7a-*-signed.apk
-
-      - name: Upload x86_64 artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: SFA-x86_64
-          path: |
-            SFA/app/build/outputs/apk/release/*-x86_64-signed.apk
-            SFA/app/build/outputs/apk/release/*-x86_64-*-signed.apk
-
-      - name: Upload x86 artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: SFA-x86
-          path: |
-            SFA/app/build/outputs/apk/release/*-x86-signed.apk
-            SFA/app/build/outputs/apk/release/*-x86-*-signed.apk
-
+     
       - name: Upload universal artifact
         uses: actions/upload-artifact@v3
         with:
