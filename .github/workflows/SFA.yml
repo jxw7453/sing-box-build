@@ -7,14 +7,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_gvisor,with_quic,with_utls,with_clash_api
+      TAGS: with_gvisor,with_quic,with_utls,with_clash_api,with_proxyprovider
 
     steps:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: SagerNet/sing-box
-         ref: main
+         repository: rnetx/sing-box
+         ref: dev
          fetch-depth: 0
 
       - name: Get latest go version
