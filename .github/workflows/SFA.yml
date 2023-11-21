@@ -1,4 +1,4 @@
-name: Build SFA from debiansid dev-next-yaott
+name: Build SFA from qjebbs
 
 on:
   workflow_dispatch:
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: rnetx/sing-box
-         ref: dev
+         repository: qjebbs/sing-box
+         ref: main
          fetch-depth: 0
 
       - name: Get latest go version
