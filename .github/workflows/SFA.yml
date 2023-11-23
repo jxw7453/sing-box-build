@@ -1,4 +1,4 @@
-name: Build SFA from qjebbs
+name: Build SFA from official
 
 on:
   workflow_dispatch:
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: qjebbs/sing-box
-         ref: main
+         repository: SagerNet/sing-box
+         ref: dev-next
          fetch-depth: 0
 
       - name: Get latest go version
