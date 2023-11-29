@@ -45,7 +45,6 @@ jobs:
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
-          go run ./cmd/internal/update_android_version
           CGO_ENABLED=1 gomobile bind -v -androidapi 21 -javapkg=io.nekohasekai -libname=box -tags ${TAGS} -ldflags "-X github.com/sagernet/sing-box/constant.Version=${version} -buildid=" ./experimental/libbox
           cp ./libbox.aar SFA/app/libs/
           cd SFA
