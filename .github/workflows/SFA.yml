@@ -44,6 +44,7 @@ jobs:
         run: |
           git remote add sekai https://github.com/SagerNet/sing-box
           git fetch sekai
+          go run ./cmd/internal/update_android_version
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
