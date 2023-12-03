@@ -1,4 +1,4 @@
-name: Build SFA from E5 Repo
+name: Build SFA from rnetx 
 
 on:
   workflow_dispatch:
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: CHIZI-0618/sing-box
-         ref: dev-next-yaott
+         repository: rnetx/sing-box
+         ref: dev
          fetch-depth: 0
 
       - name: Get latest go version
@@ -42,6 +42,8 @@ jobs:
 
       - name: Build SFA
         run: |
+          git remote add sekai https://github.com/SagerNet/sing-box
+          git fetch sekai
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
