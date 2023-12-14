@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: "with_quic,with_utls,with_reality_server,with_clash_api,with_gvisor"
+      TAGS: "with_quic,with_utls,with_reality_server,with_clash_api,with_gvisor,with_conntrack"
 
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v4.1.0
         with:
-          go-version: 1.21.4
+          go-version: 1.21.5
 
       - name: Checkout SFA Repository
         uses: actions/checkout@v3
