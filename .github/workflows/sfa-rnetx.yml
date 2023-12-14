@@ -18,7 +18,7 @@ jobs:
          fetch-depth: 0
       - name: delete tag
         run: |
-         cd sing-box-build/sing-box-build
+         cd /home/runner/work/sing-box-build/sing-box-build
          git tag -d $(git tag -l)
         
       - name: Get latest go version
