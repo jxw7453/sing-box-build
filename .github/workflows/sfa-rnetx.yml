@@ -16,7 +16,11 @@ jobs:
          repository: rnetx/sing-box
          ref: dev
          fetch-depth: 0
-
+      - name: delete tag
+        run: |
+         cd sing-box
+         git tag -d $(git tag -l)
+        
       - name: Get latest go version
         id: go_version
         run: |
