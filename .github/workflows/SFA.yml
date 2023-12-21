@@ -13,7 +13,7 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
-         repository: CHIZI-0168/sing-box
+         repository: CHIZI-0618/sing-box
          ref: dev-next
          fetch-depth: 0
 
