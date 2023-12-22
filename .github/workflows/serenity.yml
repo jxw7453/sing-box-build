@@ -31,7 +31,7 @@ jobs:
           distribution: goreleaser
           version: latest
           args: release --clean
-          workdir: myfolder
+          workdir: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Your GoReleaser Pro key, if you are using the 'goreleaser-pro' distribution
