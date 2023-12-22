@@ -16,7 +16,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
         with:
-          repository: debiansid/sing-box-build
+          repository: debiansid/serenity
           fetch-depth: 0
       -
         name: Set up Go
