@@ -6,7 +6,7 @@ on:
   push:
 
 permissions:
-  contents: write
+  contents: write-all
 
 jobs:
   goreleaser:
