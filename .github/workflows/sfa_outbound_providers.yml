@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: "with_quic,with_utls,with_reality_server,with_clash_api,with_gvisor,with_conntrack"
+      TAGS: "with_gvisor,with_quic,with_utls,with_clash_api,with_conntrack"
 
     steps:
       - uses: actions/checkout@v4
