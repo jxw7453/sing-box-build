@@ -7,14 +7,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_gvisor,with_quic,with_utls,with_clash_api,with_proxyprovider,with_conntrack
+      TAGS: with_gvisor,with_quic,with_utls,with_clash_api,with_outbound_provider,with_conntrack
 
     steps:
       - name: Checkout core Repository
         uses: actions/checkout@v4
         with:
          repository: rnetx/sing-box
-         ref: provider-next
+         ref: next
          fetch-depth: 0
       - name: delete tag
         run: |
