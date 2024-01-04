@@ -1,4 +1,4 @@
-name: Build Core from puernya
+name: Build Core from rnetx
 on:
   workflow_dispatch:
   schedule:
@@ -8,15 +8,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_clash_api
+      TAGS: with_quic,with_gvisor,with_utls,with_clash_api,with_outbound_provider
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: PuerNya/sing-box
-          ref: building
-
+          repository: rnetx/sing-box
+          ref: next
+      - name: delete tag
+        run: |
+         cd /home/runner/work/sing-box-build/sing-box-build
+         git tag -d $(git tag -l)
       - name: Get latest go version
         id: go_version
         run: |
