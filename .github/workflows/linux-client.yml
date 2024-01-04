@@ -1,4 +1,4 @@
-name: build sing-box-yaott client for linux 
+name: build sing-box-rnetx client for linux 
 
 on:
   workflow_dispatch:
@@ -24,11 +24,11 @@ jobs:
         with:
           fetch-depth: 0
           repository: rnetx/sing-box
-          ref: dev
+          ref: next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.21.4'
+          go-version: '1.21.5'
   build_go120:
     name: Debug build (Go 1.21)
     runs-on: ubuntu-latest
@@ -38,11 +38,11 @@ jobs:
         with:
           fetch-depth: 0
           repository: rnetx/sing-box
-          ref: dev
+          ref: next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.21.4
+          go-version: 1.21.5
   cross:
     strategy:
       matrix:
@@ -68,7 +68,7 @@ jobs:
       GOARM: ${{ matrix.goarm }}
       GOMIPS: ${{ matrix.gomips }}
       CGO_ENABLED: 1
-      TAGS: osusergo,netgo,with_gvisor,with_quic,with_clash_api,with_ech,with_utls,with_proxyprovider
+      TAGS: osusergo,netgo,with_quic,with_clash_api,with_utls,with_outbound_provider
     steps:
       - name: Set variables
         run: |
@@ -79,7 +79,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: rnetx/sing-box
-          ref: dev
+          ref: next
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
