@@ -39,11 +39,14 @@ jobs:
           java-version: 20
 
       - name: Build SFA
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
           mkdir -p SFA/app/libs/
           make lib_install
           version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
-          CGO_ENABLED=0 gomobile bind -v -androidapi 21 -javapkg=io.nekohasekai -libname=box -tags ${TAGS} -ldflags "-X github.com/sagernet/sing-box/constant.Version=${version} -buildid=" ./experimental/libbox
+          CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang
+          CGO_ENABLED=0 gomobile bind -v -a -trimpath -androidapi 21 -javapkg=io.nekohasekai -libname=box -tags ${TAGS} -ldflags "-X github.com/sagernet/sing-box/constant.Version=${version} -s -w -buildid=" ./experimental/libbox
           cp ./libbox.aar SFA/app/libs/
           cd SFA
           echo "" >> gradle.properties
@@ -54,7 +57,7 @@ jobs:
           echo "VERSION_CODE=$(date +%Y%m%d%H)" >> local.properties
           sed -i '/signingConfigs\.release/d' app/build.gradle
           chmod +x ./gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease 
 
       - name: Sign SFA
         uses: r0adkll/sign-android-release@v1
