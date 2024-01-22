@@ -1,4 +1,4 @@
-name: Build Core from rnetx
+name: Build Core from PuerNya
 on:
   workflow_dispatch:
   schedule:
