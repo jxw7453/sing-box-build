@@ -26,9 +26,9 @@ jobs:
           echo go_version=$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g') >> $GITHUB_OUTPUT
 
       - name: Setup Go
-        uses: actions/setup-go@v4.1.0
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21.6'
+          go-version: ^1.22
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
