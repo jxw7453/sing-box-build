@@ -26,11 +26,11 @@ jobs:
           repository: SagerNet/sing-box
           ref: dev-next
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21.6'
+          go-version: ^1.22
   build_go120:
-    name: Debug build (Go 1.21)
+    name: Debug build (Go 1.22)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,9 +40,9 @@ jobs:
           repository:  SagerNet/sing-box
           ref: dev-next
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: 1.21.6
+          go-version: ^1.22
   cross:
     strategy:
       matrix:
@@ -84,9 +84,9 @@ jobs:
           repository:  SagerNet/sing-box
           ref: dev-next
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: ^1.22
       - name: Build
         id: build
         run: make
