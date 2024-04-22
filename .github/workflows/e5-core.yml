@@ -1,4 +1,4 @@
-name: Build Core from PuerNya
+name: Build Core from CHIZI-0618
 on:
   workflow_dispatch:
   schedule:
@@ -10,10 +10,10 @@ jobs:
     env:
       TAGS: with_quic,with_gvisor,with_utls,with_clash_api
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-          repository: PuerNya/sing-box
+          repository: CHIZI-0618/sing-box
           ref: building
       - name: delete tag
         run: |
@@ -25,15 +25,15 @@ jobs:
           echo go_version=$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g') >> $GITHUB_OUTPUT
 
       - name: Setup Go
-        uses: actions/setup-go@v4.1.0
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21.6'
+          go-version: ^1.22
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:
-          ndk-version: r26b
+          ndk-version: r26c
           add-to-path: false
           local-cache: false
 
