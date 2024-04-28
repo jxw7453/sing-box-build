@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: rnetx/sing-box
-          ref: next
+          repository: debiansid/sing-box
+          ref: dev-next-puernya
       - name: delete tag
         run: |
          cd /home/runner/work/sing-box-build/sing-box-build
