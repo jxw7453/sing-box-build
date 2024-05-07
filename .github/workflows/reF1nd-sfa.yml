@@ -1,4 +1,4 @@
-name: Build SFA from chizi-0618 of puernya 
+name: Build SFA from reF1nd of puernya 
 on:
   workflow_dispatch:
 
@@ -12,7 +12,8 @@ jobs:
       - name: Checkout core Repository
         uses: actions/checkout@v4.1.1
         with:
-         repository: CHIZI-0618/sing-box
+         repository: reF1nd/sing-box
+         ref: dev-strategy
          fetch-depth: 0
 
       - name: Get latest go version
