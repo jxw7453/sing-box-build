@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: debiansid/sing-box
-          branch: routestrategy
+          ref: routestrategy
       - name: delete tag
         run: |
          cd /home/runner/work/sing-box-build/sing-box-build
