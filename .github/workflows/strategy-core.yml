@@ -1,4 +1,4 @@
-name: Build Core from CHIZI-0618
+name: Build routestrategy core from debiansid 
 on:
   workflow_dispatch:
   schedule:
@@ -8,12 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_clash_api
+      TAGS: with_quic,with_gvisor,with_utls,with_clash_api,with_outbound_provider
     steps:
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-          repository: CHIZI-0618/sing-box
+          repository: debiansid/sing-box
+          branch: routestrategy
       - name: delete tag
         run: |
          cd /home/runner/work/sing-box-build/sing-box-build
