@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-          repository: debiansid/sing-box
-          ref: dev-next-puernya
+          repository: CHIZI-0618/sing-box
+          ref: dev-next-PuerNya
       - name: Get latest go version
         id: go_version
         run: |
