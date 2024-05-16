@@ -52,7 +52,7 @@ jobs:
         run: |
          pwd
          ls -lart 
-         ls target/release
+         ls target/release/build
          
       - name: Upload artifact
         uses: actions/upload-artifact@v3
