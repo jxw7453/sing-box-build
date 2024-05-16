@@ -16,6 +16,7 @@ jobs:
 
       - name: Install toolchain if not cross-compiling
         uses: dtolnay/rust-toolchain@stable
+      - run: rustup target add aarch64-linux-android
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
