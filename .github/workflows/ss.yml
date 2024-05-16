@@ -30,6 +30,7 @@ jobs:
       - name: setup cargo-ndk
         run: |
           set -e
+          pwd
           cargo install cargo-ndk
           rustup target add aarch64-linux-android
 
@@ -38,6 +39,7 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
           set -e
+          pwd
           export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang
           export AR=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar
           export CXX=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang++
