@@ -34,7 +34,7 @@ jobs:
           set -e
           export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang
           export CXX=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang++
-          RUSTFLAGS="--emit=llvm-bc" ~/.cargo/bin/cargo build  --release --target aarch64-linux-android AR=llvm-ar
+          RUSTFLAGS="--emit=llvm-bc" ~/.cargo/bin/cargo build  --release --target aarch64-linux-android
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
