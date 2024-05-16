@@ -52,7 +52,7 @@ jobs:
         run: |
          pwd
          ls -lart 
-         ls target
+         ls target/arm64-v8a
          
       - name: Upload artifact
         uses: actions/upload-artifact@v3
