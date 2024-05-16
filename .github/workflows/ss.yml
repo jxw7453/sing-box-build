@@ -32,10 +32,9 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
           set -e
-          ln -s ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm.ar  ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-ar
           export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang
           export CXX=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang++
-          ~/.cargo/bin/cargo build  --release --target aarch64-linux-android
+          ~/.cargo/bin/cargo build  --release --target aarch64-linux-android AR=llvm-ar
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
