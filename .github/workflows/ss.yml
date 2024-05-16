@@ -51,7 +51,7 @@ jobs:
       - name: ls 
         run: |
          pwd
-         ls -lart ss-rust
+         ls -lart 
          ls target/release
          
       - name: Upload artifact
