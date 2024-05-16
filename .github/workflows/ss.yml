@@ -54,7 +54,7 @@ jobs:
          ls -lart bin
          ls -lart target
          ls target/arm64-v8a
-         
+         ls target/aarch64-linux-android
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
