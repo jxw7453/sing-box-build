@@ -51,6 +51,7 @@ jobs:
       - name: ls 
         run: |
          pwd
+         ls -lart
          ls shadowsocks-rust/target/release
          
       - name: Upload artifact
