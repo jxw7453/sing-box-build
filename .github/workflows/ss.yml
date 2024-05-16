@@ -2,19 +2,11 @@ name: Build ss-rust for android
 
 on:
   workflow_dispatch:
-  push:
-    paths-ignore:
-      - '**.md'
-      - '.github/**'
-      - '!.github/workflows/debug.yml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      TAGS: with_gvisor,with_quic,with_utls,with_clash_api,with_outbound_provider
-      TAGS_ANDROID: with_quic,with_utls,with_clash_api,with_outbound_provider
-
+    
     steps:
       - uses: actions/checkout@v4.1.1
         with:
