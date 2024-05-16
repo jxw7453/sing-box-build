@@ -52,7 +52,7 @@ jobs:
         run: |
          pwd
          ls -lart bin
-         ls -lart target/release
+         ls -lart target
          ls target/arm64-v8a
          
       - name: Upload artifact
