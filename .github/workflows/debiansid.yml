@@ -37,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: debiansid/sing-box
-          ref: dev-next-rnetx
+          
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
