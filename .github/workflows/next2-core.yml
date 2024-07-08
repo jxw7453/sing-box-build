@@ -1,4 +1,4 @@
-name: Build dev-routestrategy core from reF1nd of PuerNya
+name: Build next2 core from rnetx
 on:
   workflow_dispatch:
   schedule:
@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-          repository: reF1nd/sing-box
-          ref: dev-routestrategy
+          repository: rnetx/sing-box
+          ref: next2
       - name: delete tag
         run: |
          cd /home/runner/work/sing-box-build/sing-box-build
