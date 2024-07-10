@@ -1,4 +1,4 @@
-name: build sing-box windows from rnetx
+name: build sing-box next2 windows from rnetx
 
 on:
   workflow_dispatch:
