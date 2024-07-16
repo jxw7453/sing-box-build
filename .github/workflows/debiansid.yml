@@ -94,7 +94,7 @@ jobs:
         if: ${{ contains(matrix.name, 'linux') || contains(matrix.name, 'bsd') || contains(matrix.name, 'darwin') || contains(matrix.name, 'android') }}
         run: mv sing-box* sing-box-${{ matrix.name }}
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sing-box-${{ matrix.name }}
           path: sing-box*
