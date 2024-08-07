@@ -1,4 +1,4 @@
-name: Build  puernya core from E5
+name: Build  official core from sagernet
 on:
   workflow_dispatch:
   schedule:
@@ -8,13 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_clash_api,with_provider
+      TAGS: with_quic,with_gvisor,with_utls,with_clash_api
     steps:
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-          repository: CHIZI-0618/sing-box
-          ref: dev-next-PuerNya
+          repository: SagerNet/sing-box
+          ref: dev-next
       - name: Get latest go version
         id: go_version
         run: |
