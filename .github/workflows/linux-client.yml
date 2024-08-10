@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: rnetx/sing-box
-          ref: next
+          ref: next2
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
