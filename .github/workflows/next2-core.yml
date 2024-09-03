@@ -1,4 +1,4 @@
-name: Build next2 core from rnetx
+name: Build next2 core from debiansid
 on:
   workflow_dispatch:
   schedule:
@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: with_quic,with_gvisor,with_utls,with_ech,with_clash_api,with_outbound_provider
+      TAGS: with_quic,with_gvisor,with_utls,with_ech,with_dhcp,with_clash_api,with_outbound_provider
     steps:
       - uses: actions/checkout@v4.1.1
         with:
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: ^1.22
+          go-version: ^1.23
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
