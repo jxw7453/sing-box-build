@@ -33,12 +33,6 @@ jobs:
           path: SFA
           submodules: recursive
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'oracle'
-          java-version: 21
-
       - name: Build SFA
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
