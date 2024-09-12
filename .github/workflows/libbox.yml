@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: "with_gvisor,with_quic,with_utls,with_clash_api,with_conntrack"
+      TAGS: "with_quic,with_wireguard,with_gvisor,with_utls,with_ech,with_clash_api,with_provider"
 
     steps:
       - name: Checkout core Repository
