@@ -60,6 +60,7 @@ jobs:
           sed -i '/signingConfigs\.release/d' app/build.gradle
           chmod +x ./gradlew
           ./gradlew assemblePlayRelease 
+          cd ..
           tar -czf my_sfa.tar.gz SFA
           
       - name: Upload artifact
