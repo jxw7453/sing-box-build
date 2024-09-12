@@ -1,18 +1,7 @@
-name: Build SFA libbox.aar  from official
+name: Build SFA libbox.aar from official
 on:
   workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      TAGS: "with_quic,with_wireguard,with_gvisor,with_utls,with_ech,with_clash_api,with_provider"
-
-    steps:
-     name: Build SFA libbox.aar  from official
-on:
-  workflow_dispatch:
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
