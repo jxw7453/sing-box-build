@@ -1,0 +1,69 @@
+name: Build Android from official
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TAGS: "with_gvisor,with_quic,with_utls,with_clash_api,with_conntrack"
+
+    steps:
+      - name: Checkout core Repository
+        uses: actions/checkout@v4
+        with:
+         repository: SagerNet/sing-box
+         ref: dev-next
+         fetch-depth: 0
+
+      - name: Get latest go version
+        id: go_version
+        run: |
+          echo go_version=$(curl -s https://raw.githubusercontent.com/actions/go-versions/main/versions-manifest.json | grep -oE '"version": "[0-9]{1}.[0-9]{1,}(.[0-9]{1,})?"' | head -1 | cut -d':' -f2 | sed 's/ //g; s/"//g') >> $GITHUB_OUTPUT
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ^1.22
+
+      - name: Checkout SFA Repository
+        uses: actions/checkout@v4
+        with:
+          repository: SagerNet/sing-box-for-android
+          ref: dev
+          path: SFA
+          submodules: recursive
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'oracle'
+          java-version: 21
+
+      - name: Build SFA
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          mkdir -p SFA/app/libs/
+          make lib_install
+          version=$(CGO_ENABLED=0 go run ./cmd/internal/read_tag)
+          CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android34-clang
+          CGO_ENABLED=0 gomobile bind -v -a -trimpath -androidapi 21 -javapkg=io.nekohasekai -libname=box -tags ${TAGS} -ldflags "-X github.com/sagernet/sing-box/constant.Version=${version} -s -w -buildid=" ./experimental/libbox
+          cp ./libbox.aar SFA/app/libs/
+          cd SFA
+          echo "" >> gradle.properties
+          echo "org.gradle.jvmargs=-Xmx4096m -Dfile.encoding=UTF-8 -XX:+UseParallelGC" >> gradle.properties
+          echo "org.gradle.caching=true" >> gradle.properties
+          echo "org.gradle.parallel=true" >> gradle.properties
+          echo "VERSION_NAME=${version}" > local.properties
+          echo "VERSION_CODE=$(date +%Y%m%d%H)" >> local.properties
+          sed -i '/signingConfigs\.release/d' app/build.gradle
+          chmod +x ./gradlew
+          ./gradlew assemblePlayRelease 
+          cd ..
+          tar -czf android.tar.gz SFA
+             
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: android.tar.gz
